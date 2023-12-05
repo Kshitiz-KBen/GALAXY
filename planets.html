@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planets Information</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+            padding: 8px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+        }
+        li:hover {
+            background-color: #2980b9;
+        }
+        #planet-description {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Explore the Planets</h1>
+
+    <ul id="planet-list">
+        <li onclick="showDescription('Mercury')">Mercury</li>
+        <li onclick="showDescription('Venus')">Venus</li>
+        <li onclick="showDescription('Earth')">Earth</li>
+        <li onclick="showDescription('Mars')">Mars</li>
+        <li onclick="showDescription('Jupiter')">Jupiter</li>
+        <li onclick="showDescription('Saturn')">Saturn</li>
+        <li onclick="showDescription('Uranus')">Uranus</li>
+        <li onclick="showDescription('Neptune')">Neptune</li>
+    </ul>
+
+    <div id="planet-description">
+        <p>Click on a planet to see its description.</p>
+
+    </div>
+
+    <button onclick="logout()">Logout</button>
+
+
+    <script src="script.js"></script>
+    <script>
+        async function fetchData() {
+            const response = await fetch('planets.json');
+            const data = await response.json();
+            return data;
+        }
+
+        async function showDescription(planet) {
+            const data = await fetchData();
+            const descriptions = data.descriptions;
+
+            const description = descriptions[planet];
+            document.getElementById('planet-description').innerHTML = `<p>${description}</p>`;
+        }
+    </script>
+
+</body>
+</html>

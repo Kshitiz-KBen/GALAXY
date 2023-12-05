@@ -11,3 +11,10 @@ function login() {
         alert('Invalid username or password. Please try again.');
     }
 }
+function logout() {
+    // Removing user information from session storage.
+    sessionStorage.removeItem('username');
+
+    // Redirecting to the login page upon logout.
+    window.location.href = 'index.html';
+}
