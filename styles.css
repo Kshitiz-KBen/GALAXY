@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://apod.nasa.gov/apod/image/1705/Arp273Main_HubblePestana_3079.jpg');
+    background-size: cover;
+}
+
+#login-container {
+    max-width: 300px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 100px; 
+}
+
+input {
+    width:90%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
